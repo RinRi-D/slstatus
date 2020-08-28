@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-const unsigned int interval = 1000;
+const unsigned int interval = 300;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
@@ -64,10 +64,10 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 	{ keymap, "%s ", "NULL"},
-	{ run_command, "V:%s ", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
-    { battery_perc, "B:%s|", "BAT1"},
+	{ run_command, ":%s ", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
+    { battery_perc, ":%s|", "BAT1"},
 	{ battery_state, "%s ", "BAT1"},
-	{ cpu_perc, "C:%s ", "NULL"},
-	{ ram_free, "R:%s ", "NULL"},
+	{ cpu_perc, ":%s ", "NULL"},
+	{ ram_free, ":%s ", "NULL"},
 	{ datetime, "%s", "%a %F %H:%M" },
 };
