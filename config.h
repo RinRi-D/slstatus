@@ -69,6 +69,7 @@ static const struct arg args[] = {
 	{ run_command, ":%s ", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
     { battery_perc, ":%s|", "BAT1"},
 	{ battery_state, "%s ", "BAT1"},
+    { run_command, ":%s ", "/home/rinri/scripts/status/brightness.sh"},
 	{ cpu_perc, ":%02s ", "NULL"},
 	{ ram_free, ":%s ", "NULL"},
 	{ datetime, "%s", "%a %F %H:%M" },
