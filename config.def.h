@@ -63,14 +63,15 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ keymap, "[%s] ", "NULL"},
-    { username, ":%s@", "NULL"},
+    { username, "^c#fbdf90^^b#1e1e2e^ :%s@", "NULL"},
     { hostname, "%s ", "NULL"},
-	{ run_command, ":%s ", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
-    { battery_perc, ":%s|", "BAT1"},
-	{ battery_state, "%s ", "BAT1"},
-    { run_command, ":%s ", "/home/rinri/scripts/status/brightness.sh"},
-	{ cpu_perc, ":%02s ", "NULL"},
-	{ ram_free, ":%s ", "NULL"},
-	{ datetime, "%s", "%a %F %H:%M" },
+    { run_command, "^c#81d4ee^^b#1e1e2e^ %s | ", "~/scripts/mute.sh"},
+	{ run_command, ":%s ", "pactl get-sink-volume @DEFAULT_SINK@ | grep -o \"[0-9]*%\" | head -1" },
+    { run_command, "%s", "~/scripts/status/battery.sh"},
+    { battery_perc, ":%s|", "BAT1"},
+	{ battery_state, "%s ^b#1e1e2e^", "BAT1"},
+    { run_command, "^c#d990cd^ :%s ", "~/scripts/status/brightness.sh"},
+	{ cpu_perc, "^c#fbdf90^ :%s ", "NULL"},
+	{ ram_free, "^c#81d4ee^ :%s ", "NULL"},
+    { run_command, "%s^d^  ", "~/scripts/status/date.sh"}
 };
